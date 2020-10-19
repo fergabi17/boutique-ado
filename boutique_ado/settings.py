@@ -14,6 +14,8 @@ from pathlib import Path
 import dj_database_url
 from os import path
 import os
+if path.exists('boutique_ado/env.py'):
+    from boutique_ado import env
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 's+ghb660u&g&o-kl&y+7mwjt)_oak&17wif)qil=c&h6pw#15r'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -124,7 +126,7 @@ WSGI_APPLICATION = 'boutique_ado.wsgi.application'
 
 
 
-if not path.exists('env.py'):
+if not path.exists('boutique_ado/env.py'):
     DATABASES = {
         'default': dj_database_url.parse('postgres://vrrwawhiwhfxdn:d8cbfa6ed4ce0a94f38bbd847d029d368f7591ff838ab9a399adee2f828f0a34@ec2-52-30-161-203.eu-west-1.compute.amazonaws.com:5432/dfafbgs453fcj1')
     }
