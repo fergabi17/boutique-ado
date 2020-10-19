@@ -28,7 +28,7 @@ SECRET_KEY = 's+ghb660u&g&o-kl&y+7mwjt)_oak&17wif)qil=c&h6pw#15r'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['fgc-boutique-ado.heroku', 'localhost']
+ALLOWED_HOSTS = ['fgc-boutique-ado.herokuapp.com', 'localhost']
 
 
 # Application definition
