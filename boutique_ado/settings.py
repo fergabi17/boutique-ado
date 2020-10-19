@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import dj_database_url
+from os import path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -123,7 +124,7 @@ WSGI_APPLICATION = 'boutique_ado.wsgi.application'
 
 
 
-if DATABASE_URL in os.environ:
+if not path.exists('env.py'):
     DATABASES = {
         'default': dj_database_url.parse('postgres://vrrwawhiwhfxdn:d8cbfa6ed4ce0a94f38bbd847d029d368f7591ff838ab9a399adee2f828f0a34@ec2-52-30-161-203.eu-west-1.compute.amazonaws.com:5432/dfafbgs453fcj1')
     }
